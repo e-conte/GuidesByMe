@@ -1,4 +1,8 @@
-#   Actualizar
+##########################################
+# Guia de Instalación de Qemu/KVM + GUI: #
+##########################################
+
+#   Actualizar el sistema
 sudo pacman -Syu
 
 #   Chequear si los modulos de virtualización estan cargados

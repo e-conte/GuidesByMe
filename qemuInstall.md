@@ -38,7 +38,8 @@ virt-manager
 ###########
 #  Para activar y desactivar el daemon y servicios asociados, utilizar: https://github.com/e-conte/scripts/blob/main/toggle-virt.sh
 
-#  para bindear maquinas en I3wm: bindsym "key" exec  virt-manager --connect qemu:///system --show-domain-console  "NombreDeLaVM"
+#  para bindear maquinas en I3wm:
+bindsym "key" exec  virt-manager --connect qemu:///system --show-domain-console  "NombreDeLaVM"
 
 ####################
 #  Info adicional: #

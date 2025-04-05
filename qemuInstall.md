@@ -16,10 +16,10 @@ lscpu | grep virtua     #   virtua solamente, porque si esta en ingles o españo
 #   Instalar qemu +KVM
 sudo pacman -S qemu virt-manager libvirt dnsmasq ebtables
 
-#   * qemu: El software de virtualización.
-#   * virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
-#   * libvirt: Biblioteca para interactuar con QEMU/KVM.
-#   * dnsmasq y ebtables: Para soporte de redes en las VMs.
+   * qemu: El software de virtualización.
+   * virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
+   * libvirt: Biblioteca para interactuar con QEMU/KVM.
+   * dnsmasq y ebtables: Para soporte de redes en las VMs.
 
 #   Habilitar el backend de Virt-manager.
 sudo systemctl enable libvirtd
@@ -49,8 +49,8 @@ bindsym "key" exec  virt-manager --connect qemu:///system --show-domain-console 
 #  Info adicional: #
 ####################
 
-#   * KVM, Kernel based virtualization machine, es decir.
-#   * Qemu es un hypervisor de KVM ó aplicación que permite virtualizar.
-#   * virt-manager es una GUI para KVM, el frontend.
-#   * libvirt es una libreria escrita en C que proporciona una API quee permite usar diferentes hypervisores. 
-#   * libvirt también es el daemon de backend de la misma y tiene la herramientas CLI virsh.
+   * KVM, Kernel based virtualization machine, es decir.
+   * Qemu es un hypervisor de KVM ó aplicación que permite virtualizar.
+   * virt-manager es una GUI para KVM, el frontend.
+   * libvirt es una libreria escrita en C que proporciona una API quee permite usar diferentes hypervisores. 
+   * libvirt también es el daemon de backend de la misma y tiene la herramientas CLI virsh.

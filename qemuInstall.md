@@ -24,13 +24,13 @@
 `sudo systemctl start libvirtd`
 
 ##  Agregar el usuario a el grupo libvirtd.
-##  Probamos si el grupo existe.
+###  Probamos si el grupo existe.
 `groups` 
 
-##   sino existe lo  creamos con:   
+###   sino existe lo  creamos con:   
 `newgrp libvirt`
 
-##   Agregamos nuestro usuario o el usuario que querramos usar con la qemu.
+###   Agregamos nuestro usuario o el usuario que querramos usar con la qemu.
 `useradd -aG libvirt $(whomi)`
 
 ##   Ejecutamos el Frontend de qemu (virt-manager). 
@@ -38,9 +38,9 @@
 
 ##  Notas: 
 
-###  Para activar y desactivar el daemon y servicios asociados, utilizar: https://github.com/e-conte/scripts/blob/main/toggle-virt.sh
-
-###  para bindear maquinas en I3wm:
+-  Para activar y desactivar el daemon y servicios asociados, utilizar:
+   https://github.com/e-conte/scripts/blob/main/toggle-virt.sh
+-  para bindear maquinas en I3wm:
 `bindsym "key" exec  virt-manager --connect qemu:///system --show-domain-console  "NombreDeLaVM"`
 
 ##  Info adicional:

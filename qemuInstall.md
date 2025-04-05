@@ -1,25 +1,25 @@
 
-| #   Guia de Instalación de Qemu/KVM + GUI:
+#   Guia de Instalación de Qemu/KVM + GUI:
 
-| ###   Actualizar el sistema
+###   Actualizar el sistema
 `sudo pacman -Syu`
 
- ###   Chequear si los modulos de virtualización estan cargados
+###   Chequear si los modulos de virtualización estan cargados
 `lsmod | grep kvm`
 
- ###   Buscar , según corresponda kvm_amd o kvm_intel
+###   Buscar , según corresponda kvm_amd o kvm_intel
 
- ###   Chequear que el procesador tenga la Virtualización activada desde el BIOS 
+###   Chequear que el procesador tenga la Virtualización activada desde el BIOS 
 `lscpu | grep virtua`     #   virtua solamente, porque si esta en ingles o español cambia la plabra virtualización/tion
 
- ###   Instalar qemu +KVM
+###   Instalar qemu +KVM
 `sudo pacman -S qemu virt-manager libvirt dnsmasq ebtables`
   - qemu: El software de virtualización.
   - virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
   - libvirt: Biblioteca para interactuar con QEMU/KVM.
   - dnsmasq y ebtables: Para soporte de redes en las VMs.
 
- ###   Habilitar el backend de Virt-manager.
+###   Habilitar el backend de Virt-manager.
 `sudo systemctl enable libvirtd`
 `sudo systemctl start libvirtd`
 

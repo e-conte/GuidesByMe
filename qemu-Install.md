@@ -27,7 +27,7 @@
 ###  Probamos si el grupo existe.
 `groups` 
 
-###   sino existe lo  creamos con:   
+###   Sino existe lo  creamos con:   
 `newgrp libvirt`
 
 ###   Agregamos nuestro usuario o el usuario que querramos usar con la qemu.

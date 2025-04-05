@@ -1,12 +1,12 @@
 
 | ## Guia de Instalación de Qemu/KVM + GUI:
------------------------------------------
+|-----------------------------------------
 | ###   Actualizar el sistema
 | `sudo pacman -Syu`
-
+|
 | ###   Chequear si los modulos de virtualización estan cargados
 | `lsmod | grep kvm`
-
+|
 | ###   Buscar , según corresponda kvm_amd o kvm_intel
 
 | ###   Chequear que el procesador tenga la Virtualización activada desde el BIOS 

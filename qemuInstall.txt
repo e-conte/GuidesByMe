@@ -43,6 +43,12 @@ useradd -aG libvirt $(whomi)
 
 virt-manager
 
+#  Notas:
+#  Para activar y desactivar el daemon t servicios aparejados, utilizar: https://github.com/e-conte/scripts/blob/main/toggle-virt.sh
+#  para bindear maquinas en I3wm: bindsym "key" exec  virt-manager --connect qemu:///system --show-domain-console  "NombreDeLaVM"
+
+
+#  Info adicional:
 #   KVM
 #   Qemu es un hypervisor de KVM ó aplicación que permite virtualizar.
 #   virt-manager es una GUI para KVM, el frontend.

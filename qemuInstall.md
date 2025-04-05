@@ -1,5 +1,5 @@
 
-| ## Guia de Instalación de Qemu/KVM + GUI:
+## |  Guia de Instalación de Qemu/KVM + GUI:
 |-----------------------------------------
 | ###   Actualizar el sistema
 | `sudo pacman -Syu`

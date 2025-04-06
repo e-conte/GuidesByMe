@@ -53,18 +53,49 @@ Intel:
 echo "options kvm_intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 ```
 
-## Habilitar AMD SEV
+## Habilitar AMD SEV (Opcional Recomendado)
+Secure Encryptation Virtualization; Esta técnologia usa claves encriptadas diferentes separando el uso de memoria entre el host y las VM para impedir el acceso a información no autorizada.
+
 Vía modrpobe:
 ```
 echo "options kvm_amd sev=1" | sudo tee /etc/modprobe.d/amd-sev.conf
 sudo reboot
 ```
 Vía Grub:
-- Abrir con nano, vi, o vim sudo `/etc/default/grub`
-- Agregar `GRUB_CMDLINE_LINUX="... mem_encrypt=on kvm_amd.sev=1"`
+1. Abrir con nano, vi, o vim sudo
+`/etc/default/grub`
+2. Agregar
+`GRUB_CMDLINE_LINUX="... mem_encrypt=on kvm_amd.sev=1"`
+3. Regenerar `grub.vfg`
+```  
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo reboot
+```
 
+## Habilitar Intel IOMMU (Opcional Recomendado)
+Intel Virtualization Technology for Direct I/O; Gestiona la memoria de I/O asignando direcciones virtuales visibles a dispositivos con direcciones fisicas. Permite accesos DMA eficientes y seguros.
+1. Abrir con nano, vi, o vim sudo
+`/etc/default/grub`
+2. Agregar
+`GRUB_CMDLINE_LINUX="... intel_iommu=on iommu=pt"`
+3. Regenerar `grub.vfg`
+```  
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo reboot
+```
 
-
+##Optimizar el host con TuneD (Opcional)
+1. Instalar TuneD
+`sudo pacman -S tuned`
+2. Habilitar TuneD
+```
+sudo systemctl start tuned
+sudo systemctl enable tuned
+```
+3. Setear el profile de optimización del host
+`tuned-adm profile virtual-host`
+4.Verificar el profile
+`sudo tuned-adm verify`
 
 ## Agregar el usuario a el grupo libvirtd.
 ### Probamos si el grupo existe.

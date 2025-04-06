@@ -84,7 +84,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
-##Optimizar el host con TuneD (Opcional)
+## Optimizar el host con TuneD (Opcional)
 1. Instalar TuneD
 `sudo pacman -S tuned`
 2. Habilitar TuneD
@@ -93,9 +93,11 @@ sudo systemctl start tuned
 sudo systemctl enable tuned
 ```
 3. Setear el profile de optimización del host
-`tuned-adm profile virtual-host`
+```
+tuned-adm profile virtual-host
+```
 4.Verificar el profile
-`sudo tuned-adm verify`
+```sudo tuned-adm verify```
 
 ## Agregar el usuario a el grupo libvirtd.
 ### Probamos si el grupo existe.

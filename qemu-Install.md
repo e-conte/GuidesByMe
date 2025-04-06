@@ -64,7 +64,7 @@ echo "options kvm_intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 ## Habilitar AMD SEV (Opcional Recomendado)
 Secure Encryptation Virtualization; Esta técnologia usa claves encriptadas diferentes separando el uso de memoria entre el host y las VM para impedir el acceso a información no autorizada.
 
-### Vía modrpobe:
+### Vía modprobe:
 ```
 echo "options kvm_amd sev=1" | sudo tee /etc/modprobe.d/amd-sev.conf
 sudo reboot

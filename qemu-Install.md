@@ -8,7 +8,8 @@ Buscar , según corresponda kvm_amd o kvm_intel
 `lsmod | grep kvm`
 
 ## Chequear que el procesador tenga la Virtualización activada desde el BIOS 
-`lscpu | grep virtua`     #   virtua solamente, porque si el S.O. esta en ingles o español cambia la palabra virtualización/tion
+Utilizaremos `grep+virtua` solamente, porque si el S.O. esta en ingles o español cambia la palabra virtualización/tion y sino no podremos encontrarla con el comando `grep` 
+`lscpu | grep virtua`     
 
 ## Instalar qemu +KVM
 `sudo pacman -S qemu-full virt-manager virt-install virt-viewer libvirt edk2-ovmf dnsmasq ebtables edk2-ovmf swtpm libosinfo`
@@ -85,31 +86,56 @@ sudo reboot
 ```
 
 ## Optimizar el host con TuneD (Opcional)
-1. Instalar TuneD
-`sudo pacman -S tuned`
-2. Habilitar TuneD
+
+1. Remplazar si existe power-profiles-daemon con TuneD
+```
+sudo pacman -Rs power-profiles-daemon
+sudo pacman -S tuned
+```
+2. Verificar y detener power-profiles-daemon
+```
+systemctl stop power-profiles-daemon
+systemctl status power-profiles-daemon
+```
+3. Habilitar TuneD
 ```
 sudo systemctl start tuned
 sudo systemctl enable tuned
 ```
-3. Setear el profile de optimización del host
+4. Setear el profile de optimización del host
+`
+tuned-adm profile virtual-host`
+5.Verificar el profile
+`sudo tuned-adm verify`
+
+## Seteamos los permisos ACL(acces control list) de KVM para los directorios de las imagenes
+1. Borramos permisos actuales, usaremos la ubicación default de las imagenes
+`sudo setfacl -R -b /var/lib/libvirt/images/`
+2. Le damos permisos al usuario actual
+`
+sudo setfacl -R -m "u:${USER}:rwX" /var/lib/libvirt/images/`
+3. Establecemos permisos default para nuestro usaurio, para poder utilizar los archivos y carpeteas que se creen posteriormente
+`sudo setfacl -m "d:u:${USER}:rwx" /var/lib/libvirt/images/ q hace este comando`
+4. Verificamos los permisos
+`sudo getfacl /var/lib/libvirt/images/`
 ```
-tuned-adm profile virtual-host
+getfacl: Removing leading '/' from absolute path names
+# file : var/lib/libvirt/images/
+# owner: root
+# group: root
+user::rwx
+user:tatum:rwx
+group::--x
+mask::rwx
+other::--x
+default:user::rwx
+default:user:MyUser:rwx
+default:group::--x
+default:mask::rwx
+default:other::--x
 ```
-4.Verificar el profile
-```sudo tuned-adm verify```
 
-## Agregar el usuario a el grupo libvirtd.
-### Probamos si el grupo existe.
-`groups` 
-
-### Sino existe lo  creamos con:   
-`newgrp libvirt`
-
-### Agregamos nuestro usuario o el usuario que querramos usar con la qemu.
-`useradd -aG libvirt $(whomi)`
-
-## Ejecutamos el Frontend de qemu (virt-manager). 
+## Ejecutamos el Frontend de qemu. 
 `virt-manager`
 
 ## Notas: 

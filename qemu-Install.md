@@ -13,11 +13,15 @@
 `lscpu | grep virtua`     #   virtua solamente, porque si el S.O. esta en ingles o español cambia la palabra virtualización/tion
 
 ##   Instalar qemu +KVM
-`sudo pacman -S qemu virt-manager libvirt dnsmasq ebtables`
+`sudo pacman -S qemu-full virt-manager virt-install virt-viewer libvirt edk2-ovmf dnsmasq ebtables edk2-ovmf swtpm libosinfo`
   - qemu: El software de virtualización.
   - virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
+  - virt-install - CLI tool to create guest VMs
+  - virt-viewer - GUI console to connect to running VMs
   - libvirt: Biblioteca para interactuar con QEMU/KVM.
   - dnsmasq y ebtables: Para soporte de redes en las VMs.
+  - edk2-ovmf: Habilita soporte UEFI en las VMs
+  - swtpm: TPM Es un emulador de (Trusted Platform Module) para VMs
 
 ##   Habilitar el backend de Virt-manager.
 `sudo systemctl enable libvirtd`

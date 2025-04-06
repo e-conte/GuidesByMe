@@ -167,7 +167,9 @@ default:other::--x
 ## Notas: 
 
 - Para activar y desactivar el daemon y servicios asociados, utilizar:
-```https://github.com/e-conte/scripts/blob/main/toggle-virt.sh```
+```
+https://github.com/e-conte/scripts/blob/main/toggle-virt.sh
+```
 - Para bindear maquinas en I3wm:
 ```
 bindsym "$mod+Key" exec  virt-manager --connect qemu:///system --show-domain-console   "NombreDeLaVM"

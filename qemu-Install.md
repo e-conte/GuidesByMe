@@ -18,14 +18,14 @@ lscpu | grep virtua
 ```
 sudo pacman -S qemu-full virt-manager virt-install virt-viewer libvirt edk2-ovmf dnsmasq ebtables edk2-ovmf swtpm libosinfo
 ```
-  - qemu: El software de virtualización.
-  - virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
-  - virt-install - herramienta de consola para crear VMs.
-  - virt-viewer - GUI de consola para conectar VMs
-  - libvirt: Biblioteca para interactuar con QEMU/KVM.
-  - dnsmasq y ebtables: Para soporte de redes en las VMs.
-  - edk2-ovmf: Habilita soporte UEFI en las VMs
-  - swtpm: TPM Es un emulador de (Trusted Platform Module) para VMs
+- qemu: El software de virtualización.
+- virt-manager: Interfaz gráfica para gestionar máquinas virtuales.
+- virt-install - herramienta de consola para crear VMs.
+- virt-viewer - GUI de consola para conectar VMs
+- libvirt: Biblioteca para interactuar con QEMU/KVM.
+- dnsmasq y ebtables: Para soporte de redes en las VMs.
+- edk2-ovmf: Habilita soporte UEFI en las VMs
+- swtpm: TPM Es un emulador de (Trusted Platform Module) para VMs
 
 ## Habilitar el backend de Virt-manager.
 ```
@@ -64,12 +64,12 @@ echo "options kvm_intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 ## Habilitar AMD SEV (Opcional Recomendado)
 Secure Encryptation Virtualization; Esta técnologia usa claves encriptadas diferentes separando el uso de memoria entre el host y las VM para impedir el acceso a información no autorizada.
 
-###Vía modrpobe:
+### Vía modrpobe:
 ```
 echo "options kvm_amd sev=1" | sudo tee /etc/modprobe.d/amd-sev.conf
 sudo reboot
 ```
-###Vía Grub:
+### Vía Grub:
 1. Abrir con nano, vi, o vim sudo
 ```
 /etc/default/grub
@@ -167,7 +167,7 @@ default:other::--x
 ## Notas: 
 
 - Para activar y desactivar el daemon y servicios asociados, utilizar:
- ```https://github.com/e-conte/scripts/blob/main/toggle-virt.sh```
+```https://github.com/e-conte/scripts/blob/main/toggle-virt.sh```
 - Para bindear maquinas en I3wm:
 ```
 bindsym "$mod+Key" exec  virt-manager --connect qemu:///system --show-domain-console   "NombreDeLaVM"

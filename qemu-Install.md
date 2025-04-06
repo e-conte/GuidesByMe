@@ -4,9 +4,8 @@
 `sudo pacman -Syu`
 
 ## Chequear si los modulos de virtualización estan cargados
+Buscar , según corresponda kvm_amd o kvm_intel
 `lsmod | grep kvm`
-
-## Buscar , según corresponda kvm_amd o kvm_intel
 
 ## Chequear que el procesador tenga la Virtualización activada desde el BIOS 
 `lscpu | grep virtua`     #   virtua solamente, porque si el S.O. esta en ingles o español cambia la palabra virtualización/tion

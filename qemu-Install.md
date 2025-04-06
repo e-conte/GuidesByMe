@@ -27,7 +27,7 @@ sudo pacman -S qemu-full virt-manager virt-install virt-viewer libvirt edk2-ovmf
 - edk2-ovmf: Habilita soporte UEFI en las VMs
 - swtpm: TPM Es un emulador de (Trusted Platform Module) para VMs
 
-## Habilitar el backend de Virt-manager.
+## Habilitar el backend de Virt-manager
 ```
 sudo systemctl enable libvirtd
 sudo systemctl start libvirtd

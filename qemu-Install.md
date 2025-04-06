@@ -3,11 +3,11 @@
 ## Actualizar el sistema
 `sudo pacman -Syu`
 
-## Chequear si los modulos de virtualización estan cargados
+## Verificar si los modulos de virtualización estan cargados
 Buscar , según corresponda kvm_amd o kvm_intel
 `lsmod | grep kvm`
 
-## Chequear que el procesador tenga la Virtualización activada desde el BIOS 
+## Verificar que el procesador tenga la Virtualización activada desde el BIOS 
 Utilizaremos `grep+virtua` solamente, porque si el S.O. esta en ingles o español cambia la palabra virtualización/tion y sino no podremos encontrarla con el comando `grep` 
 `lscpu | grep virtua`     
 
@@ -75,6 +75,7 @@ sudo reboot
 
 ## Habilitar Intel IOMMU (Opcional Recomendado)
 Intel Virtualization Technology for Direct I/O; Gestiona la memoria de I/O asignando direcciones virtuales visibles a dispositivos con direcciones fisicas. Permite accesos DMA eficientes y seguros.
+
 1. Abrir con nano, vi, o vim sudo
 `/etc/default/grub`
 2. Agregar
@@ -109,6 +110,7 @@ tuned-adm profile virtual-host`
 `sudo tuned-adm verify`
 
 ## Seteamos los permisos ACL(acces control list) de KVM para los directorios de las imagenes
+
 1. Borramos permisos actuales, usaremos la ubicación default de las imagenes
 `sudo setfacl -R -b /var/lib/libvirt/images/`
 2. Le damos permisos al usuario actual
@@ -147,6 +149,7 @@ default:other::--x
   "NombreDeLaVM"`
 
 ## Info adicional:
+
 - KVM, Kernel based virtualization machine, es decir.
 - Qemu es un hypervisor de KVM ó aplicación que permite virtualizar.
 - virt-manager es una GUI para KVM, el frontend.

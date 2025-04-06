@@ -28,7 +28,8 @@ Buscar , según corresponda kvm_amd o kvm_intel
 ## Verificar que dispositivos estan virtualizados
 `sudo virt-host-validate qemu`
 
-## Habilitar virtualización dentro de una VM con acelearación de Hardware del Host(Por ejemplo para utilizar el emulador Wine dentro de la VM)
+## Habilitar Nested Virtualization
+Permite ejecutar una VM dentro de otra contando con acelearación de Hardware del Host(Por ejemplo: Wine dentro de la VM)
 
 ### Habilitarlo para una sesion
 AMD:

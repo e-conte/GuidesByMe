@@ -72,13 +72,13 @@ sudo reboot
 ### Vía Grub:
 1. Abrir con nano, vi, o vim sudo
 ```
-/etc/default/grub
+sudo nano /etc/default/grub
 ```
-3. Agregar
+2. Agregar
 ```
 GRUB_CMDLINE_LINUX="... mem_encrypt=on kvm_amd.sev=1"
 ```
-5. Regenerar `grub.vfg`
+3. Regenerar `grub.vfg`
 ```  
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
@@ -89,13 +89,13 @@ Intel Virtualization Technology for Direct I/O; Gestiona la memoria de I/O asign
 
 1. Abrir con nano, vi, o vim sudo
 ```
-/etc/default/grub
+sudo nano /etc/default/grub
 ```
-3. Agregar
+2. Agregar
 ```
 GRUB_CMDLINE_LINUX="... intel_iommu=on iommu=pt"
 ```
-5. Regenerar `grub.vfg`
+3. Regenerar `grub.vfg`
 ```  
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
@@ -121,7 +121,7 @@ sudo systemctl enable tuned
 ```
 tuned-adm profile virtual-host
 ```
-5.Verificar el profile
+5. Verificar el profile
 ```
 sudo tuned-adm verify
 ```
@@ -132,15 +132,15 @@ sudo tuned-adm verify
 ```
 sudo setfacl -R -b /var/lib/libvirt/images/
 ```
-3. Le damos permisos al usuario actual
+2. Le damos permisos al usuario actual
 ```
 sudo setfacl -R -m "u:${USER}:rwX" /var/lib/libvirt/images/
 ```
-4. Establecemos permisos default para nuestro usaurio, para poder utilizar los archivos y carpeteas que se creen posteriormente
+3. Establecemos permisos default para nuestro usaurio, para poder utilizar los archivos y carpeteas que se creen posteriormente
 ```
 sudo setfacl -m "d:u:${USER}:rwx" /var/lib/libvirt/images/ q hace este comando
 ```
-6. Verificamos los permisos
+4. Verificamos los permisos
 ```
 sudo getfacl /var/lib/libvirt/images/
 ```

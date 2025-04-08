@@ -1,4 +1,4 @@
-# Guia de Instalación de Qemu/KVM + GUI:
+# Guia de Instalación de Qemu/KVM + GUI en español:
 
 ## Actualizar el sistema
 ```

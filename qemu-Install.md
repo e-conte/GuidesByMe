@@ -185,4 +185,4 @@ bindsym "$mod+Key" exec  virt-manager --connect qemu:///system --show-domain-con
 - libvirt es una libreria escrita en C que proporciona una API quee permite usar diferentes hypervisores. 
 - libvirt también es el daemon de backend de la misma y tiene la herramientas CLI virsh.
 
-
+### Si tenes alguna duda, utiliza "Issues" y escribime!

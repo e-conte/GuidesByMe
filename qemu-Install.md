@@ -136,7 +136,7 @@ sudo setfacl -R -b /var/lib/libvirt/images/
 ```
 sudo setfacl -R -m "u:${USER}:rwX" /var/lib/libvirt/images/
 ```
-3. Establecemos permisos default para nuestro usaurio, para poder utilizar los archivos y carpeteas que se creen posteriormente
+3. Establecemos permisos default para nuestro usaurio, para poder utilizar los archivos y carpeteas que se creen posteriormente en `/var/lib/libvirt/images/`
 ```
 sudo setfacl -m "d:u:${USER}:rwx" /var/lib/libvirt/images/ q hace este comando
 ```
@@ -160,6 +160,8 @@ default:group::--x
 default:mask::rwx
 default:other::--x
 ```
+#Importante: 
+Para poder leer las imagenes .iso del sistema que queremos instalar en nuestras VMs también necesitamos permiso. Podemos colocar nuestras imagenes en `/var/lib/libvirt/images/` o repetir los pasos anteriores en la carpeta que querramos dar acceso.
 
 ## Ejecutamos el Frontend de qemu. 
 ```virt-manager```
